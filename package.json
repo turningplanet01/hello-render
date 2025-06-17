@@ -1,0 +1,12 @@
+{
+    "name": "render-app",
+    "version": "1.0.0",
+    "description": "A simple Node.js application for Render deployment",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
