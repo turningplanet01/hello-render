@@ -1,6 +1,10 @@
 // server.js
 const express = require('express');
+const cors = require('cors'); // 新增这行
 const app = express();
+
+// 启用 CORS（关键！）
+app.use(cors()); // 新增这行
 
 app.get('/api/hello', (req, res) => {
   res.json({ message: 'hello world' });
