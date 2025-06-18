@@ -16,6 +16,28 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 const movieSchema = new mongoose.Schema({}, { strict: false }); // strict: false 允许任意字段
 const Movie = mongoose.model('Movie', movieSchema, 'embedded_movies');
 
+// 新增电影接口（带标识字段）
+app.post('/api/movies', async (req, res) => {
+  try {
+    const { title, plot, genres, runtime } = req.body;
+    const sampleDb = mongoose.connection.useDb('sample_mflix');
+    const MovieModel = sampleDb.model('Movie', movieSchema, 'embedded_movies');
+    const newMovie = new MovieModel({
+      title,
+      plot,
+      genres,
+      runtime,
+      added_by_user: true,      // 关键标识
+      created_at: new Date()    // 可选：添加时间
+    });
+    await newMovie.save();
+    res.json({ status: 'success', movie: newMovie });
+  } catch (err) {
+    res.status(500).json({ status: 'error', message: err.message });
+  }
+});
+
+
 // 测试数据库连接接口
 app.get('/api/db-status', async (req, res) => {
   try {
