@@ -27,7 +27,7 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('服务已启动，欢迎访问！');
+  res.send('Service started. Welcome！');
 });
 
 const PORT = process.env.PORT || 3000;
