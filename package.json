@@ -8,6 +8,6 @@
   "dependencies": {
     "express": "^4.18.2",
     "cors": "^2.8.5",
-    "mongoose": "^7.0.0" // 新增这一行，版本号可用最新
+    "mongoose": "^7.0.0"
   }
 }
