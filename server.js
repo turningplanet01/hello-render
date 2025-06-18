@@ -7,7 +7,7 @@ const app = express();
 app.use(cors()); // 新增这行
 
 app.get('/api/hello', (req, res) => {
-  res.json({ message: 'hello world' });
+  res.json({ message: 'hello render world' });
 });
 
 // 新加 / 路由
